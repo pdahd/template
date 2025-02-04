@@ -144,15 +144,23 @@ function highlightCode(content) {
   const codeEls = [...content.querySelectorAll("pre > code")];
     for (const codeEl of codeEls) {
         hljs.highlightElement(codeEl);
+
         // 创建复制按钮
         const copyButton = document.createElement("button");
         copyButton.innerHTML = "复制";
         copyButton.classList.add("copy-button"); // 添加样式类
-        // **直接将复制按钮添加到 code 元素内**
-        codeEl.style.position = 'relative';
-        codeEl.appendChild(copyButton);
-        // 添加点击事件监听器
-        copyButton.addEventListener("click", function () {
+
+        // 将复制按钮添加到代码块的容器中
+        const preElement = codeEl.parentElement;
+        if (preElement && preElement.tagName === 'PRE') {
+            preElement.style.position = 'relative';
+            preElement.appendChild(copyButton);
+        } else {
+            codeEl.style.position = 'relative';
+            codeEl.appendChild(copyButton);
+        }
+       // 添加点击事件监听器
+       copyButton.addEventListener("click", function () {
             const codeText = codeEl.innerText;
             navigator.clipboard.writeText(codeText).then(() => {
                 copyButton.innerText = '已复制';
