@@ -47,13 +47,13 @@ export const renderer = jsxRenderer(({ children, title }) => {
             }
 
             .hljs-string {
-              color: #4B0082 !important; /* 紫色 */
+              color: #32127A !important; /* 紫色 */
             }
 
             /* 可选：标题和内置函数等高亮颜色 */
             .hljs-title,
             .hljs-built_in {
-              color: #177245 !important; /* 绿色 */
+              color: #00693E !important; /* 绿色 */
             }
           `}
         </style>
