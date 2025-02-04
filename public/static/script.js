@@ -145,30 +145,37 @@ function highlightCode(content) {
   for (const codeEl of codeEls) {
     hljs.highlightElement(codeEl);
 
+    // 获取代码语言（如果 hljs 识别到了 class 里面的语言）
+    const language = codeEl.className.match(/language-(\w+)/);
+    const langName = language ? language[1].toUpperCase() : "TEXT";
+
+    // 创建一个容器（代码块包装器）
+    const preEl = codeEl.parentElement;
+    const codeWrapper = document.createElement("div");
+    codeWrapper.classList.add("code-wrapper");
+    preEl.parentNode.replaceChild(codeWrapper, preEl);
+    codeWrapper.appendChild(preEl);
+
+    // 创建标题栏
+    const titleBar = document.createElement("div");
+    titleBar.classList.add("code-title-bar");
+
+    // 创建语言标识
+    const langLabel = document.createElement("span");
+    langLabel.innerText = langName;
+    langLabel.classList.add("code-lang-label");
+
     // 创建复制按钮
     const copyButton = document.createElement("button");
     copyButton.innerHTML = "复制";
-    copyButton.classList.add("copy-button"); // 添加样式类
+    copyButton.classList.add("copy-button");
 
-    // 设置 codeEl 为相对定位
-    codeEl.style.position = "relative";
+    // 组装标题栏
+    titleBar.appendChild(langLabel);
+    titleBar.appendChild(copyButton);
+    codeWrapper.insertBefore(titleBar, preEl);
 
-    // 设置按钮样式（右上角）
-    copyButton.style.position = "absolute";
-    copyButton.style.top = "8px";
-    copyButton.style.right = "8px";
-    copyButton.style.padding = "5px 10px";
-    copyButton.style.fontSize = "12px";
-    copyButton.style.background = "#4CAF50";
-    copyButton.style.color = "white";
-    copyButton.style.border = "none";
-    copyButton.style.borderRadius = "5px";
-    copyButton.style.cursor = "pointer";
-
-    // 添加按钮到 codeEl
-    codeEl.appendChild(copyButton);
-
-    // 添加点击事件监听器
+    // 复制功能
     copyButton.addEventListener("click", function () {
       const codeText = codeEl.innerText;
       navigator.clipboard.writeText(codeText).then(() => {
