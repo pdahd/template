@@ -149,26 +149,54 @@ function highlightCode(content) {
     const language = codeEl.className.match(/language-(\w+)/);
     const langName = language ? language[1].toUpperCase() : "TEXT";
 
-    // 创建一个容器（代码块包装器）
+    // 创建代码块容器
     const preEl = codeEl.parentElement;
     const codeWrapper = document.createElement("div");
-    codeWrapper.classList.add("code-wrapper");
+    codeWrapper.style.borderRadius = "8px";
+    codeWrapper.style.overflow = "hidden";
+    codeWrapper.style.border = "1px solid #ddd";
+    codeWrapper.style.marginBottom = "16px"; // 让多个代码块之间有间距
+
+    // 替换原来的 pre 元素
     preEl.parentNode.replaceChild(codeWrapper, preEl);
     codeWrapper.appendChild(preEl);
 
     // 创建标题栏
     const titleBar = document.createElement("div");
-    titleBar.classList.add("code-title-bar");
+    titleBar.style.display = "flex";
+    titleBar.style.justifyContent = "space-between";
+    titleBar.style.alignItems = "center";
+    titleBar.style.padding = "6px 12px";
+    titleBar.style.fontSize = "14px";
+    titleBar.style.fontWeight = "bold";
+    titleBar.style.color = "#fff";
+    titleBar.style.background = "linear-gradient(90deg, #F4A261, #E76F51)"; // Cloudflare 黄橙渐变
 
     // 创建语言标识
     const langLabel = document.createElement("span");
     langLabel.innerText = langName;
-    langLabel.classList.add("code-lang-label");
+    langLabel.style.fontFamily = "monospace";
+    langLabel.style.textTransform = "uppercase";
 
     // 创建复制按钮
     const copyButton = document.createElement("button");
     copyButton.innerHTML = "复制";
-    copyButton.classList.add("copy-button");
+    copyButton.style.padding = "4px 8px";
+    copyButton.style.fontSize = "12px";
+    copyButton.style.background = "rgba(255, 255, 255, 0.2)";
+    copyButton.style.color = "#fff";
+    copyButton.style.border = "none";
+    copyButton.style.borderRadius = "4px";
+    copyButton.style.cursor = "pointer";
+    copyButton.style.transition = "background 0.2s";
+
+    // 复制按钮鼠标悬停效果
+    copyButton.addEventListener("mouseenter", function () {
+      copyButton.style.background = "rgba(255, 255, 255, 0.4)";
+    });
+    copyButton.addEventListener("mouseleave", function () {
+      copyButton.style.background = "rgba(255, 255, 255, 0.2)";
+    });
 
     // 组装标题栏
     titleBar.appendChild(langLabel);
