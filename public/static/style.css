@@ -862,11 +862,3 @@ code > .copy-button {
     z-index: 10; /* 确保按钮在代码之上显示 */
 }
 
-code > .copy-button:hover {
-    opacity: 1; /* 鼠标悬停时按钮透明度 */
-    background-color: #e0e0e0; /* 鼠标悬停时按钮背景颜色 */
-}
-
-code > .copy-button:active {
-    background-color: #d0d0d0; /* 鼠标点击时按钮背景颜色 */
-}
