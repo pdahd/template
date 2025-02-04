@@ -159,7 +159,7 @@ function highlightCode(content) {
     codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.15)";
 
     // ✅ 设置代码块内容区域的背景颜色渐变
-    preEl.style.background = "linear-gradient(180deg, #f6f8fa, #eaecef)";
+    preEl.style.background = "linear-gradient(180deg, #FAF3D5, #EED9C4)";
 
     // ✅ 让代码块与背景颜色更协调
     preEl.style.padding = "10px";
