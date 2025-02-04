@@ -841,3 +841,31 @@ video {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
+code {
+    position: relative; /* code标签设置为相对定位 */
+    display: block; /* 确保code块是块级元素 */
+}
+code > .copy-button {
+    position: absolute; /* 绝对定位 */
+    top: 5px; /* 距离顶部5px */
+    right: 5px; /* 距离右侧5px */
+    padding: 5px 10px; /* 按钮内边距 */
+    background-color: #f0f0f0; /* 按钮背景颜色 */
+    border: 1px solid #ccc; /* 按钮边框 */
+    border-radius: 4px; /* 按钮圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为手型 */
+    font-size: 0.8rem; /* 按钮字体大小 */
+    opacity: 0.7; /* 按钮初始透明度 */
+    transition: opacity 0.3s ease; /* 透明度过渡效果 */
+    z-index: 10; /* 确保按钮在代码之上显示 */
+}
+
+code > .copy-button:hover {
+    opacity: 1; /* 鼠标悬停时按钮透明度 */
+    background-color: #e0e0e0; /* 鼠标悬停时按钮背景颜色 */
+}
+
+code > .copy-button:active {
+    background-color: #d0d0d0; /* 鼠标点击时按钮背景颜色 */
+    }
