@@ -46,10 +46,14 @@ export const renderer = jsxRenderer(({ children, title }) => {
               color: #FF0000 !important; /* 红色关键字 */
             }
 
+            .hljs-string {
+              color: #6C3082 !important; /* 紫色 */
+            }
+
             /* 可选：标题和内置函数等高亮颜色 */
             .hljs-title,
             .hljs-built_in {
-              color: #177245 !important; /* 绿色标题 */
+              color: #177245 !important; /* 绿色 */
             }
           `}
         </style>
