@@ -841,3 +841,36 @@ video {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
+.copy-button {
+    position: absolute; /* 绝对定位，相对于最近的已定位祖先元素 */
+    top: 5px; /* 距离代码块顶部的距离 */
+    right: 5px; /* 距离代码块右侧的距离 */
+    padding: 5px 10px; /* 内边距，使按钮看起来更舒服 */
+    background-color: #f0f0f0; /* 按钮的背景颜色 */
+    border: 1px solid #ccc; /* 按钮的边框 */
+    border-radius: 4px; /* 按钮的圆角 */
+    cursor: pointer; /* 鼠标悬停时显示手型光标 */
+    font-size: 0.8rem; /* 按钮的字体大小 */
+    opacity: 0.7; /* 设置按钮的初始透明度 */
+    transition: opacity 0.3s ease; /* 添加透明度过渡效果 */
+    z-index: 10; /*确保按钮在代码上方显示*/
+}
+
+.copy-button:hover {
+    opacity: 1; /* 鼠标悬停时，按钮变为完全不透明 */
+    background-color: #e0e0e0; /* 鼠标悬停时，按钮的背景颜色略微改变 */
+}
+
+.copy-button:active {
+    background-color: #d0d0d0; /* 鼠标点击时，按钮的背景颜色进一步改变 */
+}
+
+pre {
+    position: relative; /* 设置代码块为相对定位，以便绝对定位的复制按钮可以相对于它定位 */
+}
+
+code {
+    position: relative; /* 设置code标签为相对定位，以便绝对定位的复制按钮可以相对于它定位 */
+    display: block; /* 使 code 元素占据整个可用宽度，便于定位复制按钮，可以删除尝试效果 */
+             }
