@@ -156,6 +156,7 @@ function highlightCode(content) {
     codeWrapper.style.overflow = "hidden";
     codeWrapper.style.border = "1px solid #ddd";
     codeWrapper.style.marginBottom = "16px"; // 让多个代码块之间有间距
+    codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.15)"; // 柔和阴影
 
     // 替换原来的 pre 元素
     preEl.parentNode.replaceChild(codeWrapper, preEl);
