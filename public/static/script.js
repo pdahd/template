@@ -155,8 +155,15 @@ function highlightCode(content) {
     codeWrapper.style.borderRadius = "8px";
     codeWrapper.style.overflow = "hidden";
     codeWrapper.style.border = "1px solid #ddd";
-    codeWrapper.style.marginBottom = "16px"; // 让多个代码块之间有间距
-    codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.15)"; // 柔和阴影
+    codeWrapper.style.marginBottom = "16px";
+    codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.15)";
+
+    // ✅ 设置代码块内容区域的背景颜色渐变
+    preEl.style.background = "linear-gradient(180deg, #f6f8fa, #eaecef)";
+
+    // ✅ 让代码块与背景颜色更协调
+    preEl.style.padding = "12px";
+    preEl.style.borderRadius = "0 0 8px 8px"; // 让内容区下方圆角与标题栏协调
 
     // 替换原来的 pre 元素
     preEl.parentNode.replaceChild(codeWrapper, preEl);
