@@ -33,7 +33,8 @@ export const renderer = jsxRenderer(({ children, title }) => {
           {`
             /* 代码块内容区背景设置为旧纸张风格 */
             pre {
-              background: linear-gradient(180deg, #FAF3D5, #EED9C4) !important; /* 渐变背景 */
+              background: linear-gradient(180deg, #FAF3D5, #F0EAD6) !important; /* 渐变背景 */
+              color: #5A4634 !important; /* 深棕色文字，适合旧纸风格 */color: #5A4634 !important; /* 深棕色文字，适合旧纸风格 */
             }
 
             /* 防止高亮样式被覆盖 */
