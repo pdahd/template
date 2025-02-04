@@ -158,11 +158,7 @@ function highlightCode(content) {
     codeWrapper.style.marginBottom = "16px";
     codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.15)";
 
-    preEl.style.setProperty("background", "linear-gradient(180deg, #FAF3D5, #EED9C4)", "important");
-    const codeEl = preEl.querySelector("code");
-    if (codeEl) {
-        codeEl.style.setProperty("background", "transparent", "important"); // 透明背景，继承父元素
-    }
+    preEl.style.background = "linear-gradient(180deg, #f6f8fa, #eaecef)";
 
     // ✅ 让代码块与背景颜色更协调
     preEl.style.padding = "10px";
