@@ -162,7 +162,7 @@ function highlightCode(content) {
     preEl.style.background = "linear-gradient(180deg, #f6f8fa, #eaecef)";
 
     // ✅ 让代码块与背景颜色更协调
-    preEl.style.padding = "12px";
+    preEl.style.padding = "10px";
     preEl.style.borderRadius = "0 0 8px 8px"; // 让内容区下方圆角与标题栏协调
 
     // 替换原来的 pre 元素
@@ -179,6 +179,7 @@ function highlightCode(content) {
     titleBar.style.fontWeight = "bold";
     titleBar.style.color = "#fff";
     titleBar.style.background = "linear-gradient(90deg, #F4A261, #E76F51)"; // Cloudflare 黄橙渐变
+    titleBar.style.borderRadius = "8px 8px 0 0"; // 让标题栏顶部两个角变圆角
 
     // 创建语言标识
     const langLabel = document.createElement("span");
