@@ -178,24 +178,44 @@ function highlightCode(content) {
     langLabel.style.fontFamily = "monospace";
     langLabel.style.textTransform = "uppercase";
 
-    // 创建复制按钮
+    // 创建 SVG 复制图标
     const copyButton = document.createElement("button");
-    copyButton.innerHTML = "复制";
-    copyButton.style.padding = "4px 8px";
-    copyButton.style.fontSize = "12px";
-    copyButton.style.background = "rgba(255, 255, 255, 0.2)";
-    copyButton.style.color = "#fff";
+    copyButton.style.background = "transparent";
     copyButton.style.border = "none";
-    copyButton.style.borderRadius = "4px";
     copyButton.style.cursor = "pointer";
-    copyButton.style.transition = "background 0.2s";
+    copyButton.style.padding = "0";
+    copyButton.style.display = "flex";
+    copyButton.style.alignItems = "center";
+
+    const copyIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    copyIcon.setAttribute("width", "20");
+    copyIcon.setAttribute("height", "20");
+    copyIcon.setAttribute("viewBox", "0 0 64 64");
+    copyIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    copyIcon.setAttribute("fill", "none");
+    copyIcon.setAttribute("stroke", "white");
+    copyIcon.setAttribute("stroke-width", "3");
+
+    const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    rect.setAttribute("x", "11.13");
+    rect.setAttribute("y", "17.72");
+    rect.setAttribute("width", "33.92");
+    rect.setAttribute("height", "36.85");
+    rect.setAttribute("rx", "2.5");
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "M19.35,14.23V13.09a3.51,3.51,0,0,1,3.33-3.66H49.54a3.51,3.51,0,0,1,3.33,3.66V42.62a3.51,3.51,0,0,1-3.33,3.66H48.39");
+
+    copyIcon.appendChild(rect);
+    copyIcon.appendChild(path);
+    copyButton.appendChild(copyIcon);
 
     // 复制按钮鼠标悬停效果
     copyButton.addEventListener("mouseenter", function () {
-      copyButton.style.background = "rgba(255, 255, 255, 0.4)";
+      copyIcon.setAttribute("stroke", "#ffdd99"); // 悬停时变亮
     });
     copyButton.addEventListener("mouseleave", function () {
-      copyButton.style.background = "rgba(255, 255, 255, 0.2)";
+      copyIcon.setAttribute("stroke", "white"); // 恢复默认白色
     });
 
     // 组装标题栏
@@ -207,15 +227,15 @@ function highlightCode(content) {
     copyButton.addEventListener("click", function () {
       const codeText = codeEl.innerText;
       navigator.clipboard.writeText(codeText).then(() => {
-        copyButton.innerText = "已复制";
+        copyIcon.setAttribute("stroke", "#66ff66"); // 复制成功时变绿色
         setTimeout(() => {
-          copyButton.innerText = "复制";
+          copyIcon.setAttribute("stroke", "white"); // 1秒后恢复白色
         }, 1000);
       }).catch(err => {
         console.error("无法复制文本: ", err);
-        copyButton.innerText = "复制失败";
+        copyIcon.setAttribute("stroke", "red"); // 复制失败时变红
         setTimeout(() => {
-          copyButton.innerText = "复制";
+          copyIcon.setAttribute("stroke", "white");
         }, 1000);
       })
     });
