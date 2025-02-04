@@ -847,7 +847,7 @@ code {
     display: block; /* 确保code块是块级元素 */
 }
 
-code > .copy-button {
+pre > .copy-button {
     position: absolute; /* 绝对定位 */
     top: 5px; /* 距离顶部5px */
     right: 5px; /* 距离右侧5px */
