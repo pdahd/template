@@ -35,9 +35,6 @@ export const renderer = jsxRenderer(({ children, title }) => {
             pre {
               background: linear-gradient(180deg, #FAF3D5, #EED9C4) !important; /* 渐变背景 */
               color: #5A4634 !important; /* 深棕色文字，适合旧纸风格 */
-              padding: 12px !important; /* 内边距 */
-              border-radius: 8px !important; /* 圆角 */
-              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15) !important; /* 轻微阴影 */
             }
 
             /* 防止高亮样式被覆盖 */
