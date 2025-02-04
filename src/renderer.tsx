@@ -34,19 +34,23 @@ export const renderer = jsxRenderer(({ children, title }) => {
             /* 代码块内容区背景设置为旧纸张风格 */
             pre {
               background: linear-gradient(180deg, #FAF3D5, #F0EAD6) !important; /* 渐变背景 */
-              color: #5A4634 !important; /* 深棕色文字，适合旧纸风格 */color: #5A4634 !important; /* 深棕色文字，适合旧纸风格 */
+              color: #5A4634 !important; /* 深棕色文字，适合旧纸风格 */
             }
 
-            /* 防止高亮样式被覆盖 */
+            /* 保持代码内背景透明，避免被覆盖 */
             code {
-              background: transparent !important; /* 保持背景透明 */
+              background: transparent !important;
             }
 
-            /* 可选：调整代码块中某些语言元素的默认字体颜色 */
-            .hljs-keyword,
+            /* 高亮显示的关键字颜色调整 */
+            .hljs-keyword {
+              color: #FF0000 !important; /* 红色关键字 */
+            }
+
+            /* 可选：标题和内置函数等高亮颜色 */
             .hljs-title,
             .hljs-built_in {
-              color: #D2691E !important; /* 加深关键字的可见度 */
+              color: #D2691E !important; /* 橙棕色标题 */
             }
           `}
         </style>
