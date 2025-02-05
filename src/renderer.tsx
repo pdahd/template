@@ -2,6 +2,37 @@ import { jsxRenderer } from "hono/jsx-renderer";
 import "./style.css";
 
 export const renderer = jsxRenderer(({ children, title }) => {
+  // 处理 "</think>" 逻辑的函数
+  const formatModelResponse = (responseText: string) => {
+    const thinkTag = "</think>";
+    const thinkIndex = responseText.indexOf(thinkTag);
+
+    if (thinkIndex !== -1) {
+      // 拆分文本
+      const reasoningPart = responseText.substring(0, thinkIndex);
+      const finalResponse = responseText.substring(thinkIndex + thinkTag.length);
+
+      // 返回带有样式的 JSX 结构
+      return (
+        <>
+          <span
+            style={{
+              backgroundColor: "#FFF9C4", // 思考部分的淡黄色背景
+              padding: "4px",
+              borderRadius: "4px",
+              display: "inline-block",
+            }}
+          >
+            {reasoningPart}
+          </span>
+          {finalResponse}
+        </>
+      );
+    }
+
+    return responseText; // 如果没有 "</think>"，返回原始文本
+  };
+
   return (
     <html lang="en">
       <head>
@@ -61,7 +92,10 @@ export const renderer = jsxRenderer(({ children, title }) => {
           `}
         </style>
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        {/* 在这里使用 formatModelResponse 处理内容 */}
+        {formatModelResponse(children)}
+      </body>
     </html>
   );
 });
