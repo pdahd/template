@@ -33,7 +33,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
           {`
             /* 代码块内容区背景设置为旧纸张风格 */
             pre {
-              background: linear-gradient(180deg, #F1FAEE, #E2FDFF) !important; /* 渐变背景 */
+              background: linear-gradient(180deg, #F1FAEE, #EAF4F4) !important; /* 渐变背景 */
             }
 
             /* 保持代码内背景透明，避免被覆盖 */
@@ -47,7 +47,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
             }
 
             .hljs-string {
-              color: #1C39BB !important; /* 紫色 */
+              color: #669BBC !important; /* 紫色 */
             }
 
             /* 可选：标题和内置函数等高亮颜色 */
@@ -56,7 +56,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
             }
             
             .hljs-built_in {
-              color: #008B8B !important; /* 绿色 */
+              color: #2A9D8F !important; /* 绿色 */
             }
           `}
         </style>
