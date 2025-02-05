@@ -1,6 +1,7 @@
 const models = {
   "beta": [
     "@cf/deepseek-ai/deepseek-math-7b-instruct",
+    "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
     "@cf/defog/sqlcoder-7b-2",
     "@cf/fblgit/una-cybertron-7b-v2-bf16",
     "@cf/google/gemma-2b-it-lora",
