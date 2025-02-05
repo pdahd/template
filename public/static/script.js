@@ -155,8 +155,8 @@ function highlightCode(content) {
     codeWrapper.style.borderRadius = "8px";
     codeWrapper.style.overflow = "hidden";
     codeWrapper.style.border = "1px solid #ddd";
-    codeWrapper.style.marginBottom = "160px";
-    codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.15)";
+    codeWrapper.style.marginBottom = "16px";
+    codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.35)";
 
     preEl.style.background = "linear-gradient(180deg, #f6f8fa, #eaecef)";
 
