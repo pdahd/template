@@ -4,15 +4,18 @@ import "./style.css";
 export const renderer = jsxRenderer(({ children, title }) => {
   // 处理 "</think>" 逻辑的函数
   const formatModelResponse = (response: any) => {
-    // 确保 response 是字符串
-    const responseText = typeof response === "string" ? response : String(response);
+    // 如果 response 不是字符串，直接返回，不做格式化处理
+    if (typeof response !== "string") {
+      return response;
+    }
+
     const thinkTag = "</think>";
-    const thinkIndex = responseText.indexOf(thinkTag);
+    const thinkIndex = response.indexOf(thinkTag);
 
     if (thinkIndex !== -1) {
       // 拆分文本
-      const reasoningPart = responseText.substring(0, thinkIndex);
-      const finalResponse = responseText.substring(thinkIndex + thinkTag.length);
+      const reasoningPart = response.substring(0, thinkIndex);
+      const finalResponse = response.substring(thinkIndex + thinkTag.length);
 
       // 返回带有样式的 JSX 结构
       return (
@@ -32,7 +35,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
       );
     }
 
-    return responseText; // 如果没有 "</think>"，返回原始文本
+    return response; // 如果没有 "</think>"，返回原始文本
   };
 
   return (
@@ -62,7 +65,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
         )}
       </head>
       <body className="font-sans">
-        {/* 在这里使用 formatModelResponse 处理内容 */}
+        {/* 仅在 children 是字符串时处理，否则保持原 JSX 结构 */}
         {formatModelResponse(children)}
       </body>
     </html>
