@@ -33,30 +33,12 @@ export const renderer = jsxRenderer(({ children, title }) => {
           {`
             /* 代码块内容区背景设置为纯色 */
             pre {
-              background: #F6FFF8 !important; 
+              background: #F2F4F3 !important; 
             }
 
             /* 保持代码内背景透明，避免被覆盖 */
             code {
               background: transparent !important;
-            }
-
-            /* 高亮显示的关键字颜色调整 */
-            .hljs-keyword {
-              color: #E63946 !important; /* 红色关键字 */
-            }
-
-            .hljs-string {
-              color: #1C39BB !important; /* 紫色 */
-            }
-
-            /* 可选：标题和内置函数等高亮颜色 */
-            .hljs-literal {
-              color: #FF00CC !important;
-            }
-            
-            .hljs-built_in {
-              color: #006D6F !important; /* 绿色 */
             }
           `}
         </style>
