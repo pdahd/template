@@ -31,9 +31,9 @@ export const renderer = jsxRenderer(({ children, title }) => {
         {/* 全局样式覆盖 */}
         <style>
           {`
-            /* 代码块内容区背景设置为旧纸张风格 */
+            /* 代码块内容区背景设置为纯色 */
             pre {
-              background: linear-gradient(180deg, #F1FAEE, #E2FDFF) !important; /* 渐变背景 */
+              background: #F1FAEE !important; 
             }
 
             /* 保持代码内背景透明，避免被覆盖 */
