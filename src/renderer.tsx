@@ -33,7 +33,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
           {`
             /* 代码块内容区背景设置为旧纸张风格 */
             pre {
-              background: linear-gradient(180deg, #FAF3D5, #F1FAEE) !important; /* 渐变背景 */
+              background: linear-gradient(180deg, #E0FBFC, #F1FAEE) !important; /* 渐变背景 */
             }
 
             /* 保持代码内背景透明，避免被覆盖 */
@@ -43,7 +43,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
 
             /* 高亮显示的关键字颜色调整 */
             .hljs-keyword {
-              color: #FF0000 !important; /* 红色关键字 */
+              color: #E63946 !important; /* 红色关键字 */
             }
 
             .hljs-string {
