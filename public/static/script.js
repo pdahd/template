@@ -155,7 +155,7 @@ function highlightCode(content) {
     codeWrapper.style.borderRadius = "8px";
     codeWrapper.style.overflow = "hidden";
     codeWrapper.style.marginBottom = "15px";
-    codeWrapper.style.boxShadow = "0px 4px 12px rgba(0, 0, 0, 0.28)";
+    codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.25)";
 
     // ✅ 让代码块与背景颜色更协调
     preEl.style.padding = "3px";
