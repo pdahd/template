@@ -51,7 +51,10 @@ export const renderer = jsxRenderer(({ children, title }) => {
             }
 
             /* 可选：标题和内置函数等高亮颜色 */
-            .hljs-title,
+            .hljs-literal {
+              color: #FF00CC !important;
+            }
+            
             .hljs-built_in {
               color: #008B8B !important; /* 绿色 */
             }
