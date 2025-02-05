@@ -33,7 +33,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
           {`
             /* 代码块内容区背景设置为纯色 */
             pre {
-              background: #FEFEE3 !important; 
+              background: #F6FFF8 !important; 
             }
 
             /* 保持代码内背景透明，避免被覆盖 */
