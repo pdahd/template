@@ -33,7 +33,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
           {`
             /* 代码块内容区背景设置为旧纸张风格 */
             pre {
-              background: linear-gradient(180deg, #E0FBFC, #F1FAEE) !important; /* 渐变背景 */
+              background: linear-gradient(180deg, #ECF8F8, #F1FAEE) !important; /* 渐变背景 */
             }
 
             /* 保持代码内背景透明，避免被覆盖 */
