@@ -157,8 +157,6 @@ function highlightCode(content) {
     codeWrapper.style.marginBottom = "15px";
     codeWrapper.style.boxShadow = "0px 5px 13px rgba(0, 0, 0, 0.32)";
 
-    preEl.style.background = "linear-gradient(180deg, #FF00FF, #FF00FF)";
-
     // ✅ 让代码块与背景颜色更协调
     preEl.style.padding = "3px";
     preEl.style.borderRadius = "0 0 8px 8px"; // 让内容区下方圆角与标题栏协调
