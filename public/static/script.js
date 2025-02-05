@@ -147,7 +147,7 @@ function highlightCode(content) {
 
     // 获取代码语言（如果 hljs 识别到了 class 里面的语言）
     const language = codeEl.className.match(/language-(\w+)/);
-    const langName = language ? language[1].toUpperCase() : "text";
+    const langName = language ? language[1].toUpperCase() : "TEXT";
 
     // 创建代码块容器
     const preEl = codeEl.parentElement;
@@ -158,27 +158,11 @@ function highlightCode(content) {
     codeWrapper.style.marginBottom = "16px";
     codeWrapper.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 0.15)";
 
-    // 设置底层背景颜色（灰色渐变）
     preEl.style.background = "linear-gradient(180deg, #f6f8fa, #eaecef)";
-    preEl.style.position = "relative"; // 为了放置内容区的半透明叠加背景
-
-    // ✅ 设置内容区叠加背景（旧纸张效果，半透明）
-    const overlay = document.createElement("div");
-    overlay.style.background = "linear-gradient(180deg, rgba(250, 243, 213, 0.8), rgba(238, 217, 196, 0.8))"; // 半透明纸张颜色
-    overlay.style.position = "absolute";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.pointerEvents = "none"; // 确保叠加层不会阻挡用户操作
-    overlay.style.zIndex = "1"; // 放在内容上方但低于其他交互元素
-
-    preEl.appendChild(overlay);
 
     // ✅ 让代码块与背景颜色更协调
     preEl.style.padding = "10px";
     preEl.style.borderRadius = "0 0 8px 8px"; // 让内容区下方圆角与标题栏协调
-    preEl.style.zIndex = "2"; // 确保内容显示在叠加背景之上
 
     // 替换原来的 pre 元素
     preEl.parentNode.replaceChild(codeWrapper, preEl);
@@ -195,9 +179,6 @@ function highlightCode(content) {
     titleBar.style.color = "#fff";
     titleBar.style.background = "linear-gradient(90deg, #F4A261, #E76F51)"; // Cloudflare 黄橙渐变
     titleBar.style.borderRadius = "8px 8px 0 0"; // 让标题栏顶部两个角变圆角
-
-    // 将标题栏添加到代码块容器中
-    codeWrapper.insertBefore(titleBar, preEl);
 
     // 创建语言标识
     const langLabel = document.createElement("span");
